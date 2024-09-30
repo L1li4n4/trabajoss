@@ -1,0 +1,96 @@
+<?php
+  $username ="root";
+  $password = "";
+  $username = "localhost";
+  $datosbase  = "torresgemelas";
+// crear conexion
+$conexion = new mysqli($servername, $username, $password, $datosbase);
+//verificar la conexion
+if($conexion->connect_error){
+    die("conexion fallida:" . $conexion->connect_error);
+}
+$sql ="SELECT * FROM trabajadores";
+$resultado = $conexion->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar datos de la base de datos</title>
+</head>
+<body>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: aqua;
+            margin:0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+        h1{
+            text-align: center;
+            color: blue;
+            margin-bottom: 20px;
+        }
+        table{
+            width: 100%;
+            border-color: red;
+            margin-top: 50px;
+            border-radius: 50px;
+        }
+        th, td{
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:nth-child(even){
+            background-color: aqua;
+            color: blueviolet;
+        }
+        th{
+            background-color: chartreuse;
+            color: aquamarine;
+        }
+    </Style>
+    <div class="container">
+        <h1 ></h1>
+        <?php
+           if($resultados->num_rows >0):?>
+           <table>
+            <try>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </try>
+            <?php while($fila = resultados->fetch_assoc()):?>
+                <try>
+                    <td><?php  echo $fila[´nombre´]; ?></td>
+                    <td><?php  echo $fila[´apellido´]; ?></td>
+                    <td><?php  echo $fila[´nacionalidad´]; ?></td>
+                    <td><?php  echo $fila[´genero´]; ?></td>
+                    <td><?php  echo $fila[´edad´]; ?></td>
+                    <td><?php  echo $fila[´correo´]; ?></td>
+                    <td><?php  echo $fila[´telefono´]; ?></td>
+                </try>
+                <?php endwhile; ?>
+           </table>
+           <?php else: ?>
+             <php>No se encontró</php>
+             <?php endif; ?>
+
+    </div>
+    </body>
+</html>

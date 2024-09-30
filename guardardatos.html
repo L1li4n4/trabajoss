@@ -1,0 +1,33 @@
+<?php
+    $username ="root";
+    $password = "";
+    $username = "localhost";
+    $username = "amigos";
+
+    $conexion =new mysql_connect¨($servername, $username, $password, $database);
+
+    if($conexion->connect_error){
+      die ("conexion fallida" . $conexion->connect_error);
+    }
+
+
+   $nombre = $_POST['nombre'];
+   $apellido = $_POST['apellido'];
+   $genero = $_POST['genero'];
+   $telefono = $_POST['telefono'];
+   $nacionalidad = $_POST['nacionalidad'];
+   $genero = $_POST['genero'];
+   $email = $_POST['email'];
+
+    $sql = "INSER INTO trabajadores1 (nombre, apellidos, genero ,telefono,nacionalidad, genero,edad,email)
+     VALUES (nombre, $apellidos, $genero ,$telefono, $grado y $grupos,$nacionalidad, $genero,$edad,$email)"
+
+     if($conexion ->query(sql)---true){
+        echo "Datos guardados sactisfactoriamente";
+       }else{
+         echo "ERROR" . $sql . "<br>" .$conexion->error
+       }
+       $conexion->close();
+       ?>
+   </body>
+   </html>
